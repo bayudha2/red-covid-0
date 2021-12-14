@@ -1,7 +1,11 @@
 <template>
   <div class="home">
-    <Hero />
-    <counterArea />
+  <transition name="fade" mode="out-in">
+    <div v-show="showComp">
+      <Hero />
+      <counterArea />
+    </div>
+  </transition>
     <AboutArea />
     <SymptomsArea />
     <MapArea />
@@ -13,6 +17,9 @@
 </template>
 
 <script>
+
+import { mapMutations } from 'vuex';
+
 // @ is an alias to /src
 import Hero from '@/layouts/Hero.vue';
 import counterArea from '../layouts/counterArea.vue';
@@ -26,6 +33,11 @@ import CtaArea from '../layouts/CtaArea.vue';
 
 export default {
   name: 'Home',
+  data() {
+    return {
+      showComp: false,
+    };
+  },
   components: {
     Hero,
     CtaArea,
@@ -37,9 +49,17 @@ export default {
     AboutArea,
     counterArea,
   },
+  methods: {
+    ...mapMutations(['addNodeToStore']),
+  },
   mounted() {
+    setTimeout(() => {
+      this.showComp = true;
+    }, 500);
     const sections = document.querySelectorAll('section');
     const navbars = document.querySelectorAll('.navbar');
+
+    this.addNodeToStore(sections);
 
     window.addEventListener('scroll', () => {
       let current = '';
@@ -64,3 +84,19 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+/* Transition */
+.fade-enter-active {
+  transition: all 1s ease;
+}
+.fade-leave-active {
+transition: all 2s cubic-bezier(1, 0.5, 0.8, 1);;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  transform: translateX(80px);
+  opacity: 0;
+}
+</style>

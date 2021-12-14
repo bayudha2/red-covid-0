@@ -5,6 +5,7 @@
       <img src="../../public/shape__white1.png" class="absolute z-20
        h-16 -top-24 right-4" alt="vwhite-2">
       <div class="w-9/12 mx-auto lg:flex">
+      <transition>
         <div class="flex-1">
           <div class="hero-words flex items-center">
             <div>
@@ -27,6 +28,8 @@
             </div>
           </div>
         </div>
+      </transition>
+      <transition>
         <div class="flex-1 hidden lg:block">
           <div class="relative">
             <img src="../../public/hero__bg.png" class="absolute z-10 bg-hero right-0" alt="bg">
@@ -40,6 +43,7 @@
             class="absolute z-20 h-7 left-56 top-28 small-v" alt="v3">
           </div>
         </div>
+      </transition>
       </div>
   </section>
 </template>

@@ -61,9 +61,6 @@ export default {
   components: {
     CardPrevention,
   },
-  mounted() {
-    window.scroll(0, 0);
-  },
 };
 </script>
 

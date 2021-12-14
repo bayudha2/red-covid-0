@@ -43,9 +43,6 @@ export default {
   components: {
     Button2,
   },
-  mounted() {
-    window.scroll(0, 0);
-  },
 };
 </script>
 

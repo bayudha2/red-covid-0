@@ -21,9 +21,6 @@
 <script>
 export default {
   name: 'MapArea',
-  mounted() {
-    window.scroll(0, 0);
-  },
 };
 </script>
 

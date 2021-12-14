@@ -42,8 +42,5 @@ export default {
     Button,
     BlogNews,
   },
-  mounted() {
-    window.scroll(0, 0);
-  },
 };
 </script>

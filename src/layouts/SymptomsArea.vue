@@ -76,9 +76,6 @@ export default {
   components: {
     Button,
   },
-  mounted() {
-    window.scroll(0, 0);
-  },
 };
 </script>
 

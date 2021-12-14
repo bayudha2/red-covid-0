@@ -11,6 +11,13 @@
 import Header from '@/layouts/navbar.vue';
 import footerVue from './layouts/footer.vue';
 
+document.addEventListener('DOMContentLoaded', () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth',
+  });
+});
+
 export default {
   components: {
     Header,

@@ -67,9 +67,6 @@ export default {
       updateCounter();
     });
   },
-  mounted() {
-    window.scroll(0, 0);
-  },
   computed: {
     ...mapState(['items']),
   },

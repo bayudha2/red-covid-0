@@ -21,7 +21,8 @@
           <li>
             <a class="px-3 py-2 flex items-center text-xs uppercase
             font-bold leading-snug text-gray-800 hover:opacity-75
-            transition duration-200 ease-in-out hover:text-red-500 " href="#">
+            transition duration-200 ease-in-out hover:text-red-500 "
+             href="#" @click="(e) => sectionScroll(e)">
               <span class="ml-2 transition duration-200 ease-in-out
                hover:text-red-500 home navbar">Home</span>
             </a>
@@ -29,35 +30,40 @@
           <li>
             <a class="px-3 py-2 flex items-center text-xs
              uppercase transition duration-200 ease-in-out hover:text-red-500
-              font-bold leading-snug text-gray-800 hover:opacity-75" href="#">
-              <span class="ml-2 about navbar ">About</span>
+              font-bold leading-snug text-gray-800 hover:opacity-75"
+               href="#" @click="(e) => sectionScroll(e)">
+              <span class="ml-2 about navbar">About</span>
             </a>
           </li>
           <li>
             <a class="px-3 py-2 flex items-center
              text-xs uppercase transition duration-200 ease-in-out hover:text-red-500
-              font-bold leading-snug text-gray-800 hover:opacity-75" href="#">
+              font-bold leading-snug text-gray-800 hover:opacity-75"
+               href="#" @click="(e) => sectionScroll(e)">
              <span class="ml-2 contagion navbar">Contagion</span>
             </a>
           </li>
           <li>
             <a class="px-3 py-2 flex items-center
              text-xs uppercase transition duration-200 ease-in-out hover:text-red-500
-              font-bold leading-snug text-gray-800 hover:opacity-75" href="#">
+              font-bold leading-snug text-gray-800 hover:opacity-75"
+               href="#" @click="(e) => sectionScroll(e)">
              <span class="ml-2 symptoms navbar">Symptoms</span>
             </a>
           </li>
           <li>
             <a class="px-3 py-2 flex items-center
              text-xs uppercase transition duration-200 ease-in-out hover:text-red-500
-              font-bold leading-snug text-gray-800 hover:opacity-75" href="#">
+              font-bold leading-snug text-gray-800 hover:opacity-75"
+               href="#" @click="(e) => sectionScroll(e)">
              <span class="ml-2 blog navbar">Blog</span>
             </a>
           </li>
           <li>
             <a class="px-3 py-2 flex items-center
              text-xs uppercase transition duration-200 ease-in-out hover:text-red-500
-              font-bold leading-snug text-gray-800 hover:opacity-75" href="#">
+              font-bold leading-snug text-gray-800 hover:opacity-75"
+               href="#" @click="(e) => sectionScroll(e)">
              <span class="ml-2 prevention navbar">Prevention</span>
             </a>
           </li>
@@ -71,6 +77,8 @@
   </nav>
 </template>
 <script>
+import { mapState } from 'vuex';
+
 export default {
   name: 'Header',
   created() {
@@ -83,6 +91,17 @@ export default {
     };
   },
   methods: {
+    sectionScroll(e) {
+      e.preventDefault();
+      this.items.nodelist.forEach((node) => {
+        if (node.getAttribute('id') === e.currentTarget.childNodes[0].innerHTML.toLowerCase()) {
+          window.scrollTo({
+            top: node.offsetTop - 120,
+            behavior: 'smooth',
+          });
+        }
+      });
+    },
     toggleNavbar() {
       this.showMenu = !this.showMenu;
     },
@@ -94,8 +113,8 @@ export default {
       }
     },
   },
-  mounted() {
-    window.scroll(0, 0);
+  computed: {
+    ...mapState(['items']),
   },
 };
 

@@ -16,6 +16,7 @@ const store = createStore({
       country: {
         countries: [],
       },
+      nodelist: {},
       error: null,
     },
   },
@@ -25,6 +26,9 @@ const store = createStore({
     },
     addCountryToItems(state, payload) {
       state.items = { ...state.items, country: payload };
+    },
+    addNodeToStore(state, payload) {
+      state.items = { ...state.items, nodelist: payload };
     },
   },
   actions: {

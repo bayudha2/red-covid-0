@@ -38,9 +38,6 @@
 <script>
 export default {
   name: 'AboutArea',
-  mounted() {
-    window.scroll(0, 0);
-  },
 };
 </script>
 

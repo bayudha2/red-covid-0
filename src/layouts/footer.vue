@@ -107,9 +107,6 @@ library.add(faPhoneAlt, faMapMarkedAlt, faEnvelope);
 
 export default {
   name: 'Footer',
-  mounted() {
-    window.scroll(0, 0);
-  },
 };
 
 </script>
