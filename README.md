@@ -1,4 +1,6 @@
-# nohastag
+# VUECLI + TAILWIND 
+ 
+ About covid
 
 ## Project setup
 ```
